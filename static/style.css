@@ -299,6 +299,16 @@ body {
     color: var(--primary-color);
 }
 
+/* Additional Styles for Forgot Password Page */
+.form-text {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: #6c757d;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
 /* Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
