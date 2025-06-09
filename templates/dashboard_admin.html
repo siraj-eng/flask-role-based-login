@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2 class="sidebar-title">Admin Panel</h2>
+                <p class="sidebar-subtitle">Welcome, {{ session.username }}</p>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li><a href="#" class="active">Dashboard</a></li>
+                <li><a href="#">Users</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">System Logs</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </aside>
+        
+        <main class="main-content">
+            <div class="header">
+                <h1 class="header-title">Admin Dashboard</h1>
+                
+                <div class="user-menu">
+                    <div class="user-avatar">{{ session.username[0]|upper }}</div>
+                    <span class="user-name">{{ session.username }}</span>
+                    <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title">System Overview</h2>
+                <p>Welcome to the admin dashboard. Here you can manage all aspects of the system.</p>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title">Quick Actions</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
+                    <button class="btn">Manage Users</button>
+                    <button class="btn">View Reports</button>
+                    <button class="btn">System Settings</button>
+                    <button class="btn">Backup Data</button>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title">Recent Activity</h2>
+                <p>No recent activity to display.</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

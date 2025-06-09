@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2 class="sidebar-title">User Panel</h2>
+                <p class="sidebar-subtitle">Welcome, {{ session.username }}</p>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li><a href="#" class="active">Dashboard</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Messages</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </aside>
+        
+        <main class="main-content">
+            <div class="header">
+                <h1 class="header-title">User Dashboard</h1>
+                
+                <div class="user-menu">
+                    <div class="user-avatar">{{ session.username[0]|upper }}</div>
+                    <span class="user-name">{{ session.username }}</span>
+                    <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title">Welcome Back!</h2>
+                <p>Welcome to your personal dashboard. Here you can manage your account and preferences.</p>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title">Quick Actions</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
+                    <button class="btn">Edit Profile</button>
+                    <button class="btn">Change Password</button>
+                    <button class="btn">View Messages</button>
+                    <button class="btn">Help Center</button>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title">Recent Activity</h2>
+                <p>No recent activity to display.</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
